@@ -1,7 +1,11 @@
 <?php
 
+// This controller will handle all request related to flights
+
 class flightsController
 {
+    // Creating function tor process the data provided from Index.php with id and method 
+    
     public function processRequest(string $method, ?string $flightNumber):void
     {
         if($flightNumber){

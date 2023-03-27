@@ -1,24 +1,32 @@
 <?php
-declare(strict_types=1);
+
+declare(strict_types=1); // Declaring strict type
+
+// Autoload function
 
 spl_autoload_register(function($class){
     require __DIR__ ."/src/$class.php";
 });
 
-header("Content-type: application/json; charset=UTF-8");
-$parts = explode("/", $_SERVER['REQUEST_URI']);
+set_exception_handler("ErrorHandler::handleException"); // Class will loaded automatically
+
+header("Content-type: application/json; charset=UTF-8"); // Setting Header type to JSON format
+
+$parts = explode("/", $_SERVER['REQUEST_URI']); // Getting URL
+
+// Getting Second part of url since the first part is Application name
 
 if($parts[2] != "trips")
 {
     http_response_code(404);
     exit();
 }
-$id = $parts[3] ?? null;
-$connection = new connection("localhost", "tripbuilder","root","");
-// Keeping try catch block so errors will be also printed in JSON format
 
-    $connection->getConnection();
+$id = $parts[3] ?? null; // Getting Part 3 if available
 
-$flightcontroller = new flightsController;
-$flightcontroller->processRequest($_SERVER['REQUEST_METHOD'], $id);
+$connection = new connection("localhost", "tripbuilder","root","");  // Calling Connection class to connect with Database
+$connection->getConnection(); //Getting connection 
+
+$flightcontroller = new flightsController; // Calling flightController class
+$flightcontroller->processRequest($_SERVER['REQUEST_METHOD'], $id); //sending Method with id in proceess Request function 
 ?>
