@@ -4,8 +4,13 @@
 
 class flightsController
 {
+
+    public function __construct(private flightGateway $flightGateway)
+    {
+        
+    }
     // Creating function tor process the data provided from Index.php with id and method 
-    
+
     public function processRequest(string $method, ?string $flightNumber):void
     {
         if($flightNumber){
@@ -22,9 +27,11 @@ class flightsController
 
     private function processCollectionRequest(string $method):void
     {
+        // Using Switch method for various http methods
+        
         switch($method){
             case "GET":
-                echo json_encode(["flight Number" => 123]);
+                echo json_encode($this->flightGateway->getAllFlights());
                 break;
         }
     }

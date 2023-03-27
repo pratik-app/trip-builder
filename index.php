@@ -25,8 +25,7 @@ if($parts[2] != "trips")
 $id = $parts[3] ?? null; // Getting Part 3 if available
 
 $connection = new connection("localhost", "tripbuilder","root","");  // Calling Connection class to connect with Database
-$connection->getConnection(); //Getting connection 
-
-$flightcontroller = new flightsController; // Calling flightController class
+$flightGateway = new flightGateway($connection); //Calling flightGatway with connection variable
+$flightcontroller = new flightsController($flightGateway); // Calling flightController class with gatway variable
 $flightcontroller->processRequest($_SERVER['REQUEST_METHOD'], $id); //sending Method with id in proceess Request function 
 ?>
