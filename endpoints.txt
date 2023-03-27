@@ -1,0 +1,16 @@
+Method	        URL	                                                                                                Action
+GET	            /trips	                                                                                            list
+GET	            /trips/source-to-destination and date	                                                            show
+POST	        /trips	                                                                                            create
+GET	            /airlines	                                                                                        list
+GET	            /airlines/airlineCode or airlineName	                                                            show
+GET	            /airports	                                                                                        list
+GET	            /airports/iata_airport_code or name or city or country_code or region_code or city Code	            show
+POST	        /airlines	                                                                                        create
+POST	        /airports	                                                                                        create
+PUT or Patch	/trips/updatedsource-to-destination and date	                                                    Update
+PUT or Patch	/airlines/updatedAirlinecode or airlinename	                                                        Update
+PUT or Patch	/airports/updatedAirport Code, nae or city or country code or region code or city code	            Update
+DELETE	        /trips	                                                                                            Delete
+DELETE	        /airlines	                                                                                        DELETE
+DELETE	        /airports	                                                                                        DELETE
