@@ -1,16 +1,16 @@
 Method	        URL	                                                                                                Action
-GET	            /trips	                                                                                            list
-GET	            /trips/source-to-destination and date	                                                            show
-POST	        /trips	                                                                                            create
-GET	            /airlines	                                                                                        list
-GET	            /airlines/airlineCode or airlineName	                                                            show
+GET	            /trips	                                                                                            list     DOne
+GET	            /trips/FlightNumber	                                                                                show     Done
+POST	        /trips	                                                                                            create   Done
+GET	            /airlines	                                                                                        list     Done
+GET	            /airlines/airlineCode               	                                                            show     Done
 GET	            /airports	                                                                                        list
 GET	            /airports/iata_airport_code or name or city or country_code or region_code or city Code	            show
-POST	        /airlines	                                                                                        create
+POST	        /airlines	                                                                                        create   Done
 POST	        /airports	                                                                                        create
-PUT or Patch	/trips/updatedsource-to-destination and date	                                                    Update
-PUT or Patch	/airlines/updatedAirlinecode or airlinename	                                                        Update
-PUT or Patch	/airports/updatedAirport Code, nae or city or country code or region code or city code	            Update
-DELETE	        /trips	                                                                                            Delete
+PUT or Patch	/trips/fllightNumber	                                                                            Update   Issue
+PUT or Patch	/airlines/updatedAirlinecode or airlinename	                                                        Update   Issue
+PUT or Patch	/airports/updatedAirport Code, nae or city or country code or region code or city code	            Update   Issue
+DELETE	        /trips	                                                                                            Delete   Done
 DELETE	        /airlines	                                                                                        DELETE
 DELETE	        /airports	                                                                                        DELETE

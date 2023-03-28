@@ -37,10 +37,10 @@ class flightsController
         switch($method)
         {
             case "GET":
-                echo json_encode($flight); //printing jsong encoded data of  flight
+                echo json_encode($flight); //printing json encoded data of  flight
                 break;
             case "PATCH":
-                $data = (array) json_decode(file_get_contents("php://input"),true);
+                $data = file_get_contents("php://input");
                 print_r($data);
                 // $errors = $this->getValidationErrors($data); //Validating the data
                 // if(! empty($errors))
@@ -51,7 +51,6 @@ class flightsController
                 // }
                 // // Calling the create method from the Gateway
                 // $rows = $this->flightGateway->updateflight($flight, $data); //Updating the flight table
-                
                 // echo json_encode([
                 //     "message" => "Flight Added",
                 //     "rows" => $rows                    
@@ -64,6 +63,9 @@ class flightsController
                     "rows"=> $rows
                 ]);
                 break;
+            default:
+                http_response_code(405);
+                header("Allow: GET, PATCH, DELETE");
         }
         
     }
