@@ -34,6 +34,14 @@ if($parts[2] == "airlines")
     $airlinescontroller->processRequest($_SERVER['REQUEST_METHOD'], $id); //sending Method with id in proceess Request function 
 
 }
+if($parts[2] == "airports")
+{
+    $id = $parts[3] ?? null;
+    $airportGateway = new airportGateway($connection); //Calling Airport Gateway with connection variable
+    $airportcontroller = new airportController($airportGateway); // Calling Airport class with gatway variable
+    $airportcontroller->processRequest($_SERVER['REQUEST_METHOD'], $id); //sending Method with id in proceess Request function 
+
+}
 
 
 
