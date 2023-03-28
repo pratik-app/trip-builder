@@ -67,7 +67,37 @@ class flightGateway
         $stmt->bindValue(":flightN", $flightNumber, PDO::PARAM_INT);
         $stmt->execute();
         $data = $stmt->fetch(PDO::FETCH_ASSOC);
+
         return $data;
+    }
+
+    // Creating Update Method
+
+    public function updateflight(array $CurrentFN, array $new): int
+    {
+        $sql = "UPDATE flights
+                SET  
+                airline_code = :AirlineCode,
+                departure_airport_code = :DAC, 
+                departure_time =:DT, 
+                arrival_airport_code = :AAC, 
+                arrival_time = :arrivalTime, 
+                price = :Price
+                WHERE flight_number  = :flightNumber";
+        $stmt = $this->con->prepare($sql);
+        $stmt->bindValue(":flightNumber", $CurrentFN, PDO::PARAM_INT);
+        $stmt->bindValue(":airline_code", $new["airlineCode"]);
+        $stmt->bindValue(":departure_airport_code", $new["departureAirportCode"]);
+        $stmt->bindValue(":departure_time", $new["departureTime"]);
+        $stmt->bindValue(":arrival_airport_code", $new["arrivalAirportCode"]);
+        $stmt->bindValue(":arrival_time", $new["arrivalTime"]);
+        $stmt->bindValue(":price", $new["price"]);
+        
+        $stmt->execute();
+        return $stmt->rowCount();
+        
+
+        
     }
 }
 ?>
