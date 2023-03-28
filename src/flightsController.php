@@ -40,9 +40,8 @@ class flightsController
                 echo json_encode($flight); //printing jsong encoded data of  flight
                 break;
             case "PATCH":
-                $data = file_get_contents("php://input"); //Getting the content of body from POST MAN but not converting to Array!issue #1
-                print_r($data); //Checking the data 
-                
+                $data = (array) json_decode(file_get_contents("php://input"),true);
+                print_r($data);
                 // $errors = $this->getValidationErrors($data); //Validating the data
                 // if(! empty($errors))
                 // {
@@ -57,7 +56,14 @@ class flightsController
                 //     "message" => "Flight Added",
                 //     "rows" => $rows                    
                 // ]); //Sending Success Message in JSON format 
-                // break;
+                break;
+            case "DELETE":
+                $rows = $this->flightGateway->deleteflight($flightNumber); //Calling function and displaying success message
+                echo json_encode([
+                    "message" => "flight Details are deleted!",
+                    "rows"=> $rows
+                ]);
+                break;
         }
         
     }

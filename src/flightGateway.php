@@ -96,8 +96,16 @@ class flightGateway
         $stmt->execute();
         return $stmt->rowCount();
         
+    }
 
-        
+    // Creating Delete Method
+    public function deleteflight(string $flightNumber): int
+    {
+        $sql = "DELETE FROM flights WHERE flight_number = :flightNum";
+        $stmt = $this->con->prepare($sql);
+        $stmt->bindValue(":flightNum", $flightNumber, PDO::PARAM_INT);
+        $stmt->execute();
+        return $stmt->rowCount();
     }
 }
 ?>
