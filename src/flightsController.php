@@ -21,7 +21,10 @@ class flightsController
         }
     }
     private function processResourceRequest (string $method, string $flightNumber):void
-    {}
+    {
+        $flight = $this->flightGateway->get($flightNumber);
+        echo json_encode($flight);
+    }
 
     private function processCollectionRequest(string $method):void
     {
@@ -50,6 +53,9 @@ class flightsController
                     "message" => "Flight Added",                    
                 ]);
                 break;
+            default:
+                http_response_code(405);
+                header("Allow: GET, POST");
         }
     }
     private function getValidationErrors(array $data):array

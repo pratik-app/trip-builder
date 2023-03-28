@@ -57,5 +57,17 @@ class flightGateway
         $stmt->execute();
         return $this->con->lastInsertId();
     }
+
+    // Creating function for getting flight Number
+
+    public function get(string $flightNumber): array | false
+    {
+        $sql = "SELECT * FROM flights WHERE flight_number = :flightN";
+        $stmt = $this->con->prepare($sql);
+        $stmt->bindValue(":flightN", $flightNumber, PDO::PARAM_INT);
+        $stmt->execute();
+        $data = $stmt->fetch(PDO::FETCH_ASSOC);
+        return $data;
+    }
 }
 ?>
