@@ -4,13 +4,13 @@ GET	            /trips/FlightNumber	                                            
 POST	        /trips	                                                                                            create   Done
 GET	            /airlines	                                                                                        list     Done
 GET	            /airlines/airlineCode               	                                                            show     Done
-GET	            /airports	                                                                                        list
-GET	            /airports/iata_airport_code or name or city or country_code or region_code or city Code	            show
+GET	            /airports	                                                                                        list     Done
+GET	            /airports/iata_airport_code                                                         	            show     Done
 POST	        /airlines	                                                                                        create   Done
-POST	        /airports	                                                                                        create
-PUT or Patch	/trips/fllightNumber	                                                                            Update   Issue
-PUT or Patch	/airlines/updatedAirlinecode or airlinename	                                                        Update   Issue
-PUT or Patch	/airports/updatedAirport Code, nae or city or country code or region code or city code	            Update   Issue
+POST	        /airports	                                                                                        create   Done
+PUT or Patch	/trips/fllightNumber	                                                                            Update   Done
+PUT or Patch	/airlines/updatedAirlinecode            	                                                        Update   Done
+PUT or Patch	/airports/updatedAirport code                                                       	            Update   Done
 DELETE	        /trips	                                                                                            Delete   Done
-DELETE	        /airlines	                                                                                        DELETE
-DELETE	        /airports	                                                                                        DELETE
+DELETE	        /airlines	                                                                                        DELETE   Done
+DELETE	        /airports	                                                                                        DELETE   Done
