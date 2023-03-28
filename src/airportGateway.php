@@ -76,7 +76,7 @@ class airportGateway
 
     // Creating Update Method
 
-    public function updateAirports(array $CurrentFN, array $new): string
+    public function updateAirports(array $new): string
     {
         $sql = "UPDATE airports
                 SET  
@@ -90,15 +90,15 @@ class airportGateway
                 region_code = :region_code
                 WHERE iata_airport_code  = :iac";
         $stmt = $this->con->prepare($sql);
-        $stmt->bindValue(":iac", $CurrentFN, PDO::PARAM_STR);
+        $stmt->bindValue(":iac", $new["iataAirportCode"], PDO::PARAM_STR);
         $stmt->bindValue(":airport_name", $new["name"]);
         $stmt->bindValue(":city", $new["city"]);
-        $stmt->bindValue(":latitude", $new["latitude"]);
-        $stmt->bindValue(":longitude", $new["longitude"]);
+        $stmt->bindValue(":latitude", $new["lat"]);
+        $stmt->bindValue(":longitude", $new["lng"]);
         $stmt->bindValue(":timezone", $new["timezone"]);
-        $stmt->bindValue(":city_code", $new["city_code"]);
-        $stmt->bindValue(":country_code", $new["country_code"]);
-        $stmt->bindValue(":region_code", $new["region_code"]);
+        $stmt->bindValue(":city_code", $new["cityCode"]);
+        $stmt->bindValue(":country_code", $new["countryCode"]);
+        $stmt->bindValue(":region_code", $new["regionCode"]);
         $stmt->execute();
         return $stmt->rowCount();
         

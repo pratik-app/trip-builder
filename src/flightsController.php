@@ -40,21 +40,20 @@ class flightsController
                 echo json_encode($flight); //printing json encoded data of  flight
                 break;
             case "PATCH":
-                $data = file_get_contents("php://input");
-                print_r($data);
-                // $errors = $this->getValidationErrors($data); //Validating the data
-                // if(! empty($errors))
-                // {
-                //     http_response_code(422); //if errors found sending HTTP status 422 
-                //     echo json_encode(["errors" => $errors]); //Sending error message
-                //     break;
-                // }
-                // // Calling the create method from the Gateway
-                // $rows = $this->flightGateway->updateflight($flight, $data); //Updating the flight table
-                // echo json_encode([
-                //     "message" => "Flight Added",
-                //     "rows" => $rows                    
-                // ]); //Sending Success Message in JSON format 
+                $data = json_decode(file_get_contents("php://input"),true);                
+                $errors = $this->getValidationErrors($data); //Validating the data
+                if(! empty($errors))
+                {
+                    http_response_code(422); //if errors found sending HTTP status 422 
+                    echo json_encode(["errors" => $errors]); //Sending error message
+                    break;
+                }
+                // Calling the create method from the Gateway                
+                $rows = $this->flightGateway->updateflight($data); //Updating the flight table
+                echo json_encode([
+                    "message" => "Flight Updated",
+                    "rows" => $rows                    
+                ]); //Sending Success Message in JSON format 
                 break;
             case "DELETE":
                 $rows = $this->flightGateway->deleteflight($flightNumber); //Calling function and displaying success message

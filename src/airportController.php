@@ -40,7 +40,7 @@ class airportController
                 echo json_encode($airportCode); //printing json encoded data of  flight
                 break;
             case "PATCH":
-                $data = (array) json_decode(file_get_contents("php://input"),true);
+                $data = json_decode(file_get_contents("php://input"),true);                
                 $errors = $this->getValidationErrors($data); //Validating the data
                 if(! empty($errors))
                 {
@@ -49,9 +49,9 @@ class airportController
                     break;
                 }
                 // Calling the create method from the Gateway
-                $rows = $this->airportGateway->updateAirports($airportCode, $data); //Updating the Airport table
+                $rows = $this->airportGateway->updateAirports($data); //Updating the Airport table
                 echo json_encode([
-                    "message" => "Airport Updated",
+                    "message" => "Airport Details Updated",
                     "rows" => $rows                    
                 ]); //Sending Success Message in JSON format 
                 break;

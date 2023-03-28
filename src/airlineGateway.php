@@ -69,17 +69,13 @@ class airlineGateway
 
     // Creating Update Method
 
-    public function updateAirline(array $CurrentFN, array $new): string
+    public function updateAirline(array $new): string
     {
-        $sql = "UPDATE airlines
-                SET  
-                name = :name,
-                description = :description, 
-                WHERE iata_airline_code  = :iac";
+        $sql = "UPDATE airlines SET name = :airline_name, description = :airline_description WHERE iata_airline_code  = :iac";
         $stmt = $this->con->prepare($sql);
-        $stmt->bindValue(":iac", $CurrentFN, PDO::PARAM_STR);
-        $stmt->bindValue(":name", $new["name"]);
-        $stmt->bindValue(":description", $new["description"]);
+        $stmt->bindValue(":iac", $new["iataAirlineCode"], PDO::PARAM_STR);
+        $stmt->bindValue(":airline_name", $new["name"]);
+        $stmt->bindValue(":airline_description", $new["description"]);
         $stmt->execute();
         return $stmt->rowCount();
         

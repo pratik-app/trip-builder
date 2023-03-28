@@ -40,7 +40,7 @@ class airlinesController
                 echo json_encode($airlineCode); //printing json encoded data of  flight
                 break;
             case "PATCH":
-                $data = (array) json_decode(file_get_contents("php://input"),true);
+                $data = json_decode(file_get_contents("php://input"),true);
                 $errors = $this->getValidationErrors($data); //Validating the data
                 if(! empty($errors))
                 {
@@ -49,7 +49,7 @@ class airlinesController
                     break;
                 }
                 // Calling the create method from the Gateway
-                $rows = $this->airlineGateway->updateAirline($airlineCode, $data); //Updating the Airline table
+                $rows = $this->airlineGateway->updateAirline($data); //Updating the Airline table
                 echo json_encode([
                     "message" => "Airline Updated",
                     "rows" => $rows                    
