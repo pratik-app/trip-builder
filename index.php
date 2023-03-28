@@ -8,6 +8,7 @@ spl_autoload_register(function($class){
     require __DIR__ ."/src/$class.php";
 });
 
+set_error_handler("ErrorHandler::handleError"); //calling error handle to display error in JSON format
 set_exception_handler("ErrorHandler::handleException"); // Class will loaded automatically
 
 header("Content-type: application/json; charset=UTF-8"); // Setting Header type to JSON format
