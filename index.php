@@ -28,7 +28,7 @@ if($parts[2] == "trips")
 }
 if($parts[2] == "onewaytrip") 
 {
-    $id = $parts[3] ?? null;
+    
     $oneWayGateway = new oneWayGateway($connection); //Calling flightGatway with connection variable
     $oneWaycontroller = new oneWayController($oneWayGateway); // Calling flightController class with gatway variable
     $oneWaycontroller->processRequest($_SERVER['REQUEST_METHOD'], $id); //sending Method with id in proceess Request function     
