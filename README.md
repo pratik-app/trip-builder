@@ -59,7 +59,3 @@ To be able to use this API, you will need the following installed on your system
 
 - DELETE Request
 ![alt text](https://github.com/pratik-app/trip-builder/blob/main/Delete%20Record%20from%20Database.jpg)
-
-
-
-

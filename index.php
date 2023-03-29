@@ -26,6 +26,20 @@ if($parts[2] == "trips")
     $flightcontroller = new flightsController($flightGateway); // Calling flightController class with gatway variable
     $flightcontroller->processRequest($_SERVER['REQUEST_METHOD'], $id); //sending Method with id in proceess Request function     
 }
+if($parts[2] == "onewaytrip") 
+{
+    $id = $parts[3] ?? null;
+    $oneWayGateway = new oneWayGateway($connection); //Calling flightGatway with connection variable
+    $oneWaycontroller = new oneWayController($oneWayGateway); // Calling flightController class with gatway variable
+    $oneWaycontroller->processRequest($_SERVER['REQUEST_METHOD'], $id); //sending Method with id in proceess Request function     
+}
+if($parts[2] == "roundtrip") 
+{
+    $id = $parts[3] ?? null;
+    $rountTripGateway = new roundTripGateway($connection); //Calling flightGatway with connection variable
+    $roundTripcontroller = new roundTripController($roundTripGateway); // Calling flightController class with gatway variable
+    $roundTripcontroller->processRequest($_SERVER['REQUEST_METHOD'], $id); //sending Method with id in proceess Request function     
+}
 if($parts[2] == "airlines")
 {
     $id = $parts[3] ?? null;
