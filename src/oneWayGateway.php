@@ -36,7 +36,7 @@ class oneWayGateway
     FROM flights AS af
         JOIN airports AS ap ON af.departure_airport_code = ap.iata_airport_code
         JOIN airlines AS a ON af.airline_code = a.iata_airline_code
-    WHERE af.departure_airport_code = $source AND af.arrival_airport_code = $destination
+    WHERE af.departure_airport_code = '$source' AND af.arrival_airport_code = '$destination'
     ";
         $stmt = $this->con->query($sql);
         $stmt->execute();
