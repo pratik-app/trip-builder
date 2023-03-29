@@ -22,6 +22,10 @@ To be able to use this API, you will need the following installed on your system
 
 ## API ENDPOINTS
 
+### ONE-WAY-FLIGHTS
+
+- POST`/onewaytrip` - Get details as mentioned in the task. NOTE: use POST request insted of GET.Example will be shown in Request Examples.
+
 ### Flights
 
 - GET`/trips/` - get all the flights.

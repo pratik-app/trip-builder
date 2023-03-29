@@ -1,6 +1,6 @@
 <?php
 
-// This controller will handle all request related to airline
+// This controller will handle oneWay Trip
 
 class oneWayController
 {
@@ -19,31 +19,6 @@ class oneWayController
         
     }
 
-    // Function to handle the Update Requests
-    private function processResourceRequest (string $method, string $source, string $destination):void
-    {
-
-        $data = $_GET;
-        var_dump($data);
-        // $dac = $this->oneWayGateway->getoneWayTrip($source, $destination); //This is Departure Airport Code
-        // if(!$dac)
-        // {
-        //     http_response_code(404); //if Departure Airport Code is wrong print error with status code 404 and error message
-        //     echo json_encode(["message" => "No Flights Found"]);
-        //     return;
-        // }
-        // // Creating Switch for Requests
-        // switch($method)
-        // {
-        //     case "GET":
-        //         echo json_encode($dac); //printing json encoded data of  flight
-        //         break;
-        //     default:
-        //         http_response_code(405);
-        //         header("Allow: GET");
-        // }
-        
-    }
     private function processCollectionRequest(string $method):void
     {
         // Using Switch method for various http methods
