@@ -15,7 +15,7 @@ header("Content-type: application/json; charset=UTF-8"); // Setting Header type 
 
 $parts = explode("/", $_SERVER['REQUEST_URI']); // Getting URL
 
-$connection = new connection("localhost", "tripbuilder","root","");  // Calling Connection class to connect with Database
+$connection = new connection("pratikmore.com", "u498926327_tripbuilder","u498926327_pmtripbuilder","]/Vstmy=T6");  // Calling Connection class to connect with Database
 
 // Getting Second part of url since the first part is Application name
 
