@@ -19,27 +19,27 @@ $connection = new connection("localhost", "u498926327_tripbuilder","u498926327_p
 
 // Getting Second part of url since the first part is Application name
 
-if($parts[2] == "trips") 
+if($parts[1] == "trips") 
 {
-    $id = $parts[3] ?? null;
+    $id = $parts[2] ?? null;
     $flightGateway = new flightGateway($connection); //Calling flightGatway with connection variable
     $flightcontroller = new flightsController($flightGateway); // Calling flightController class with gatway variable
     $flightcontroller->processRequest($_SERVER['REQUEST_METHOD'], $id); //sending Method with id in proceess Request function     
 }
-if($parts[2] == "onewaytrip") 
+if($parts[1] == "onewaytrip") 
 {
     $oneWayGateway = new oneWayGateway($connection); //Calling flightGatway with connection variable
     $oneWaycontroller = new oneWayController($oneWayGateway); // Calling flightController class with gatway variable
     $oneWaycontroller->processRequest($_SERVER['REQUEST_METHOD']); //sending Method with id in proceess Request function     
 }
-if($parts[2] == "roundtrip") 
+if($parts[1] == "roundtrip") 
 {
-    $id = $parts[3] ?? null;
+    $id = $parts[2] ?? null;
     $roundTripGateway = new roundTripGateway($connection); //Calling flightGatway with connection variable
     $roundTripcontroller = new roundTripController($roundTripGateway); // Calling flightController class with gatway variable
     $roundTripcontroller->processRequest($_SERVER['REQUEST_METHOD'], $id); //sending Method with id in proceess Request function     
 }
-if($parts[2] == "airlines")
+if($parts[1] == "airlines")
 {
     $id = $parts[3] ?? null;
     $airlineGateway = new airlineGateway($connection); //Calling Airline Gateway with connection variable
@@ -47,9 +47,9 @@ if($parts[2] == "airlines")
     $airlinescontroller->processRequest($_SERVER['REQUEST_METHOD'], $id); //sending Method with id in proceess Request function 
 
 }
-if($parts[2] == "airports")
+if($parts[1] == "airports")
 {
-    $id = $parts[3] ?? null;
+    $id = $parts[2] ?? null;
     $airportGateway = new airportGateway($connection); //Calling Airport Gateway with connection variable
     $airportcontroller = new airportController($airportGateway); // Calling Airport class with gatway variable
     $airportcontroller->processRequest($_SERVER['REQUEST_METHOD'], $id); //sending Method with id in proceess Request function 
