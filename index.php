@@ -1,7 +1,9 @@
 <?php
 
 declare(strict_types=1); // Declaring strict type
-
+?>
+<!Doctype html>
+<?php
 // Autoload function
 
 spl_autoload_register(function($class){
@@ -55,11 +57,7 @@ if($parts[1] == "airports")
     $airportcontroller->processRequest($_SERVER['REQUEST_METHOD'], $id); //sending Method with id in proceess Request function 
 
 }
-
-
-
 ?>
-<!Doctype html>
 <head>
     <!-- Adding Meta Tags -->    
     <meta charset="UTF-8">
