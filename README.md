@@ -31,13 +31,24 @@ To be able to use this API, you will need the following installed on your system
 
         - https://trip-builder.pratikmore.com/trips/ 
 
-        This will fetch One Way Trip Details
+        This will fetch One Way Trip Details 
 
         - https://trip-builder.pratikmore.com/onewaytrip/
 
+        NOTE: Data must be passed with the request
+        NOTE: Data must be passed with the Details For Example using postman pass data using Body data must be 
+        Key =  "source"  | Value "YUL" 
+        Key = "destination" | Value "YVR" 
+        
         This will fetch Round Trip Details
 
         - https://trip-builder.pratikmore.com/roundtrip
+
+        NOTE: Data must be passed with the Details For Example using postman pass data using Body data must be 
+        Key =  "departure_airport"  | Value "YUL" 
+        Key = "arrival_airport" | Value "YVR" 
+        Key = "departure_date"| Value "2023-04-04 07:35" 
+        key = "return_date" | Value "2023-04-05 12:35"
 
 
 ## API ENDPOINTS
