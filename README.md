@@ -20,11 +20,32 @@ To be able to use this API, you will need the following installed on your system
 3. Store the project in htdocs, inside a folder like Trip-Builder.
 4. Now send request using POSTMAN with the help of API Endpints.
 
+
+## Live Application Requests
+
+- https://trip-builder.pratikmore.com/
+- Please send request using postman or view this website with EndPoints 
+    for example:
+        
+        This will fetch all trips details
+
+        - https://trip-builder.pratikmore.com/trips/ 
+
+        This will fetch One Way Trip Details
+
+        - https://trip-builder.pratikmore.com/onewaytrip/
+
+        This will fetch Round Trip Details
+
+        - https://trip-builder.pratikmore.com/roundtrip
+
+
 ## API ENDPOINTS
 
 ### ONE-WAY-FLIGHTS
 
 - POST`/onewaytrip` - Get details as mentioned in the task. NOTE: use POST request insted of GET.Example will be shown in Request Examples.
+
 
 ### Flights
 
