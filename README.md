@@ -50,6 +50,25 @@ To be able to use this API, you will need the following installed on your system
         Key = "departure_date"| Value "2023-04-04 07:35" 
         key = "return_date" | Value "2023-04-05 12:35"
 
+## Live Application
+
+- The frontend application is developed to view the data as needed.
+    - Link: https://trip-builder-view.pratikmore.com/ 
+- Use Placehoder data as this is just assesment I used the sample data.
+
+## Updated CORS Policy 03-04-2023
+
+- After creating frontend, I faced problem of CORS.
+- So now CORS is Allowed for this domain. However, the CORS is updated via FileZilla as the changes was in .htaccess.
+
+## Connection
+
+- This Application is built on live server.
+    - Application first Created and Connected with GitHub.
+    - Then a Sub Domain is created to access the site.
+    - Git is linked via Server so every commit will be live.
+    - Using Webhook at server side and in GIT repo, to Auto-Deploy the application.
+- This way it is easier for adding any team member to the project and work with them.
 
 ## API ENDPOINTS
 
