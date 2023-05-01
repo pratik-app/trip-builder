@@ -16,12 +16,8 @@ class ErrorHandler
             "code" => $exception->getCode(),
             "message" => $exception->getMessage(),
             "file" => $exception->getFile(),
-            "line" => $exception->getLine()
-        ]);
+            "line" => $exception->getLine()]);
     }
-
-    // Creating function to handle error that is displaying in HTML
-
     public static function handleError(
         int $errno,
         string $errstr,

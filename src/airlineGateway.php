@@ -3,14 +3,25 @@ class airlineGateway
 {
     private PDO $con;
 
-    // Controller
+    /**
+     * 
+     * Constructor returns the connection variable
+     * 
+     */
 
     public function __construct(connection $connection)
     {
         $this->con = $connection->getConnection();
     }
 
-    // Creating function to get all Airlines details
+    /**
+     * 
+     * Creating function for getting all airlines
+     * 
+     * If will fetch all the avaiable airlines from the database.
+     * 
+     * @return void 
+     */
 
     public function getAllAirlines():array
     {
@@ -34,7 +45,16 @@ class airlineGateway
         return $data;
     }
     
-    // Create function
+    /**
+     * 
+     * Creating function to add new airline details
+     * 
+     * This function will add new airline details in the database
+     * 
+     * @param array $data airline code, airline name and airline description as parameter
+     * @return void
+     * 
+     */
 
     public function createAirlines(array $data):string
     {
@@ -54,7 +74,16 @@ class airlineGateway
         return $returnData;
     }
 
-    // Creating function for getting Airline Code
+    /**
+     * 
+     * Creating function to get the airline details from the database.
+     * 
+     * This function will fetch all the airline details.
+     * 
+     * @param string $iata_airlineCode
+     * @return void
+     * 
+     */
 
     public function get(string $iata_airlineCode): array | false
     {
@@ -67,7 +96,15 @@ class airlineGateway
         return $data;
     }
 
-    // Creating Update Method
+    /**
+     * 
+     * Creatuing function to update the airline details.
+     * 
+     * This function will update specific details of airline.
+     * 
+     * @param array $new new parameter for iata airline Code
+     * @return rowcount
+     */
 
     public function updateAirline(array $new): string
     {
@@ -81,7 +118,15 @@ class airlineGateway
         
     }
 
-    // Creating Delete Method
+    /**
+     * 
+     * Creating function to delete specific airline detail.
+     * 
+     * @param string $iata_airlineCode airline code as parameter
+     * @return rowcount
+     * 
+     */
+    
     public function deleteAirlines(string $iata_airlineCode): string
     {
         $sql = "DELETE FROM airlines WHERE iata_airline_code = :iac";
