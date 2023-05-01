@@ -91,7 +91,7 @@ class flightsController
                     break;
                 }
                 // Calling the create method from the Gateway
-                $fNumber = $this->flightGateway->createFlight($data); //Adding data to Database using the Gataway class 
+                $this->flightGateway->createFlight($data); //Adding data to Database using the Gataway class 
                 http_response_code(201); //Setting the HTTP status to 201 as Data is added in the database with the success message
                 echo json_encode([
                     "message" => "Flight Added",                    

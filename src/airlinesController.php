@@ -27,7 +27,7 @@ class airlinesController
     {
 
         $airlineCode = $this->airlineGateway->get($iata_airlineCode); //This is Airline Code
-        if(!$airlineCode)
+        if($airlineCode === false)
         {
             http_response_code(404); //if Airline Code is wrong print error with status code 404 and error message
             echo json_encode(["message" => "No Airlines Found"]);
@@ -91,7 +91,7 @@ class airlinesController
                     break;
                 }
                 // Calling the create method from the Gateway
-                $airline_Code = $this->airlineGateway->createAirlines($data); //Adding data to Database using the Gataway class 
+                $this->airlineGateway->createAirlines($data); //Adding data to Database using the Gataway class 
                 http_response_code(201); //Setting the HTTP status to 201 as Data is added in the database with the success message
                 echo json_encode([
                     "message" => "Airline Added",                    
